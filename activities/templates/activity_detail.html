@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+    <table class="table table-bordered table-hover table-dark table-striped">
+        <tr>
+            <th>To do</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>
+                {{object.activity}}
+            </td>
+            <td>
+                {{object.to_do_date|date:"Y-m-d H:i"}}
+            </td>
+            {% if object.is_done %}
+                <td>
+                    Done
+                </td>
+            {% else %}
+                <td>
+                    Not done
+                </td>
+            {% endif %}
+        </tr>
+    </table>
+    {% if object.user == user %}
+        <a class="btn btn-danger" href="{% url 'activity-delete' object.id %}">
+            Delete activity
+        </a>
+        <a class="btn btn-info" href="{% url 'activity-update' object.id %}">
+            Edit the activity
+        </a>
+
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,80 @@
+body
+{
+    margin: 0;
+}
+
+#login-try
+{
+    text-align: center;
+}
+
+.login_menu
+{
+    text-align: right;
+}
+
+td
+{
+    cursor: pointer;
+}
+
+#login_header
+{
+    text-align: center;
+}
+
+.navbar-nav
+{
+    display: contents;
+}
+
+tr
+{
+    text-align: center;
+}
+
+.icon-trash > i
+{
+    text-align: right;
+}
+
+.completed_activities
+{
+ color: rgb(55, 192, 55);
+}
+
+.uncompleted_activities
+{
+    color: red;
+}
+
+table 
+{ 
+    border-collapse: collapse;
+    empty-cells: show; 
+}
+
+td
+{
+     position: relative;
+}
+
+tr.strikeout td:before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-bottom: 1px solid #111;
+  width: 100%;
+}
+
+th 
+{ 
+    text-align: center; 
+}
+
+.lorem
+{
+    font-size:  1.25rem;
+}
+

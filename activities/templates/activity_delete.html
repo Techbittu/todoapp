@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <h2>Are you sure you want to delete the activity?</h2>
+  <div class="content-section">
+    <form method="post">
+      {% csrf_token %}
+      <fieldset class="form-group">
+      </fieldset>
+      <button type="submit" class="btn btn-danger">Delete that sick crap</button>
+      <a class="btn btn-success" href="{% url 'activity-detail' object.id %}">Cancel that sick crap</a>
+    </form>
+  </div>
+{% endblock %}

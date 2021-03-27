@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <h2>SignUp</h2>
+  <div class="content-section">
+    <form method="post">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        {{ form|crispy }}
+      </fieldset>
+      <button type="submit" class="btn btn-primary">Signup</button>
+    </form>
+  </div>
+{% endblock %}

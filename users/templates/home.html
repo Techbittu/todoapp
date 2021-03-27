@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="text-align:center;">To Do App</h1>
+<p style="text-align:center;">Login Or Create Account to use this App</p>
+<div style="text-align:center" class="md">
+    <a href="{%url 'login' %}" >Login</a><br>
+    <a href="{% url 'signup' %}">Sugnup</a>
+</div>
+<p style="text-align:center;">Login to get API Access</p>
+<div style="text-align:center;" >
+<a href="./api/activities/">API</a>
+</div>
+
+{% endblock %}

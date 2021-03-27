@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+  {{ form.media }}
+  <h2 id="login_header">Create activity!</h2>
+  <div class="content-section">
+    <form method="post">
+      {% csrf_token %}
+      <div class="border">
+        <div class='ml-4 mb-3'>
+          {% for field in form %}
+            <br>
+            {{ field.label }}:
+            <br>
+            {{ field }}
+            <br>
+            <small>{{ field.help_text }}</small>
+            <br>
+          {% endfor %}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+  </div>
+{% endblock %}

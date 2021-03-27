@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post" action="{% url "activity-delete-many" %}">
+        {% csrf_token %}
+        <div class="mb-3 ml-3">
+            <a href="{% url 'activity-add' %}">Add Activity</a>
+            <div class="float-right">
+                <a href="{% url 'activity-delete-many' %}">
+                    <button type="submit" style="position: right;">
+                        <i class="icon-trash"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+        {% for activity_date, activities in grouped_activities %}
+        <h2 class="mb-2 ml-3">{{ activity_date|date:'Y-m-d'}}</h2>
+        <table class="table table-bordered table-hover table-dark table-striped">
+            <tr>
+                <th>To do</th>
+                <th>Hour</th>
+                <th>Status</th>
+                <th>Delete</th>
+            </tr>
+            {% for activity in activities %}
+                {% if activity.is_done %}
+                    <tr id='activity-{{ activity.id }}' class="strikeout" >
+                {% else %}
+                    <tr id='activity-{{ activity.id }}'>
+                {% endif %}
+                    <td  onclick="window.location='{% url "activity-detail" activity.id %}';">
+                        {{activity.activity}}
+                    </td>
+                    <td  onclick="window.location='{% url "activity-detail" activity.id %}';">
+                        {{activity.to_do_date|date:'H:m'}}
+                    </td>
+                    {% if activity.is_done %}
+                        <td class="completed_activities"  onclick="window.location='{% url "activity-change" activity.id %}';">
+                               <b>Done</b>
+                        </td>
+                    {% else %}
+                        <td class="uncompleted_activities"  onclick="window.location='{% url "activity-change" activity.id %}';">
+                           <b>Not done</b> 
+                        </td>
+                    {% endif %}
+                    <td>
+                        <input type="checkbox" name="id" value="{{ activity.id }}">    
+                    </td>
+                    </tr>
+            {% endfor %}
+        </table>
+    <hr>
+    {% endfor %}
+    </form>
+{% endblock %}
