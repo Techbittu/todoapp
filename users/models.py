@@ -6,11 +6,11 @@ from django.contrib.auth.models import (
 class UserManager(BaseUserManager):
     def create_user(self, email, username, password=None, is_active=True, is_staff=False, is_admin=False):
         if not email:
-            raise ValueError("Użytkownik musi posiadać adres email!")
+            raise ValueError("The user must have an email address!")
         if not password:
-            raise ValueError("Użytkownik musi posiadać hasło!")
+            raise ValueError("The user must have a password!")
         if not username:
-            raise ValueError("Użytkownik musi podać nazwę konta!")
+            raise ValueError("The user must provide an account name!")
         user_obj = self.model(
             email = self.normalize_email(email),
             username = username

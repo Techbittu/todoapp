@@ -59,7 +59,7 @@ class ActivityDetailView(DetailView):
 class ActivityCreateView(LoginRequiredMixin, CreateView):
     form_class = ActivityForm
     template_name = 'activity_form.html'
-    success_url = '/activities'
+    success_ = '/'
 
     def form_valid(self, form):
         form.instance.user = self.request.user

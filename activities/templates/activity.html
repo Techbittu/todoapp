@@ -16,8 +16,10 @@
         <h2 class="mb-2 ml-3">{{ activity_date|date:'Y-m-d'}}</h2>
         <table class="table table-bordered table-hover table-dark table-striped">
             <tr>
-                <th>To do</th>
-                <th>Hour</th>
+                <th>Activity</th>
+                <th>Project</th>
+                <th>Start Hour</th>
+                <th>End Hour</th>
                 <th>Status</th>
                 <th>Delete</th>
             </tr>
@@ -30,8 +32,14 @@
                     <td  onclick="window.location='{% url "activity-detail" activity.id %}';">
                         {{activity.activity}}
                     </td>
+                    <td onclick="window.location='{% url "activity-detail" activity.id %}';">
+                        {{activity.project}}
+                    </td>
                     <td  onclick="window.location='{% url "activity-detail" activity.id %}';">
                         {{activity.to_do_date|date:'H:m'}}
+                    </td>
+                     <td  onclick="window.location='{% url "activity-detail" activity.id %}';">
+                        {{activity.end_date|date:'H:m'}}
                     </td>
                     {% if activity.is_done %}
                         <td class="completed_activities"  onclick="window.location='{% url "activity-change" activity.id %}';">

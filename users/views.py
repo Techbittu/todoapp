@@ -21,8 +21,8 @@ class SignupView(View):
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(password=raw_password, email=email)
-            email_subject = f"Witaj {user.username}!"
-            email_message = "Aktywuj swoje konto!"
+            email_subject = f"Hello {user.username}!"
+            email_message = "Activate your account!"
             send_mail(email_subject, email_message, settings.EMAIL_HOST_USER, [user.email])
             login(request, user)
             return redirect('home')

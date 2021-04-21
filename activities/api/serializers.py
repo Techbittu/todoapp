@@ -7,7 +7,9 @@ class ActivitySerializer(serializers.ModelSerializer):
         fields = [
             'pk',
             'activity',
+            'project',
             'to_do_date',
+            'end_date',
             'is_done',
             'user'
         ]

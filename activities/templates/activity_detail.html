@@ -2,8 +2,10 @@
 {% block content %}
     <table class="table table-bordered table-hover table-dark table-striped">
         <tr>
-            <th>To do</th>
-            <th>Date</th>
+            <th>Activity</th>
+            <th>Project</th>
+            <th>Start Date</th>
+            <th>End Date</th>
             <th>Status</th>
         </tr>
         <tr>
@@ -11,7 +13,13 @@
                 {{object.activity}}
             </td>
             <td>
+                {{object.project}}
+            </td>
+            <td>
                 {{object.to_do_date|date:"Y-m-d H:i"}}
+            </td>
+            <td>
+                {{object.end_date|date:"Y-m-d H:i"}}
             </td>
             {% if object.is_done %}
                 <td>
